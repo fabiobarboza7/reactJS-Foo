@@ -1,7 +1,14 @@
 import React from 'react';
-
-import { Title } from './styles';
+import Header from '../Shared/Header';
+import Footer from '../Shared/Footer';
+// import { FaFacebook } from 'react-icons/fa';
+import { Container } from './styles';
 
 export default function Main() {
-  return <Title>Main</Title>;
+  return (
+    <Container>
+      <Header />
+      <Footer />
+    </Container>
+  );
 }

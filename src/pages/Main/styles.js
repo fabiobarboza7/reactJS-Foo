@@ -5,3 +5,7 @@ export const Title = styled.h1`
   color: ${props => (props.fabio ? 'red' : 'green')};
   font-family: Arial, Helvetica, sans-serif;
 `;
+
+export const Container = styled.div`
+  background: tomato;
+`;
