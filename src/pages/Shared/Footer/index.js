@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { FooterTag } from './styles';
+import { FooterTag, Text } from './styles';
 
 export default function Footer() {
   return (
     <FooterTag>
-      <h1>Footer</h1>
+      <Text>Enjoy It</Text>
     </FooterTag>
   );
 }
