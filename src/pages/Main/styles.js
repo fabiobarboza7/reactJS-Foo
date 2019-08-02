@@ -11,6 +11,7 @@ export const Container = styled.div`
   padding: 40px;
   margin: 100px auto;
   background: tomato;
+  border-radius: 4px;
 `;
 
 export const Form = styled.form`
