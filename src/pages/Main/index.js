@@ -11,6 +11,7 @@ export default class Main extends Component {
     newGif: '',
     gifsCollection: [],
     loading: false,
+    loadingUl: false,
   };
 
   handleInputChange = e => {
@@ -22,6 +23,7 @@ export default class Main extends Component {
 
     this.setState({
       loading: true,
+      loadingUl: true,
     });
 
     const { newGif, gifsCollection } = this.state;
@@ -38,7 +40,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { gifsCollection, newGif, loading } = this.state;
+    const { gifsCollection, newGif, loading, loadingUl } = this.state;
     return (
       <>
         <Header />
@@ -60,13 +62,15 @@ export default class Main extends Component {
             </SubmitButton>
           </Form>
 
-          <List>
+          <List loadingUl={loadingUl ? 1 : 0}>
             {gifsCollection.map(gifs =>
               gifs.map(gif => (
                 <li key={gif.id}>
                   <figure>
                     <img src={gif.images.fixed_width.url} alt={gif.title} />
-                    <figcaption>{gif.title}</figcaption>
+                    <p>
+                      <a href={gif.embed_url}>{gif.title}</a>
+                    </p>
                   </figure>
                 </li>
               ))
