@@ -4,12 +4,12 @@ import '../../styles/main.css';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import api from '../../services/api';
-import { Container, Form, SubmitButton } from './styles';
+import { Container, Form, SubmitButton, List } from './styles';
 
 export default class Main extends Component {
   state = {
     newGif: '',
-    gifs: [],
+    gifsCollection: [],
     loading: false,
   };
 
@@ -24,21 +24,21 @@ export default class Main extends Component {
       loading: true,
     });
 
-    const { newGif, gifs } = this.state;
+    const { newGif, gifsCollection } = this.state;
 
     const response = await api.get(
       `/search?api_key=jU6ab4lFD2HaKsegBe5HFVT4v1Yc54tx&q=${newGif}&limit=10&offset=0&rating=G&lang=en`
     );
 
     this.setState({
-      gifs: [...gifs, response.data],
+      gifsCollection: [...gifsCollection, response.data.data],
       newGif: '',
       loading: false,
     });
   };
 
   render() {
-    const { newGif, loading } = this.state;
+    const { gifsCollection, newGif, loading } = this.state;
     return (
       <>
         <Header />
@@ -59,6 +59,12 @@ export default class Main extends Component {
               )}
             </SubmitButton>
           </Form>
+
+          {/* <List> */}
+          {gifsCollection.map(gifs =>
+            gifs.map(gif => <li key={gif.id}>{gif.title}</li>)
+          )}
+          {/* </List> */}
         </Container>
         <Footer />
       </>
