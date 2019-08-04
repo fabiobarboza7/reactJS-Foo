@@ -60,11 +60,18 @@ export default class Main extends Component {
             </SubmitButton>
           </Form>
 
-          {/* <List> */}
-          {gifsCollection.map(gifs =>
-            gifs.map(gif => <li key={gif.id}>{gif.title}</li>)
-          )}
-          {/* </List> */}
+          <List>
+            {gifsCollection.map(gifs =>
+              gifs.map(gif => (
+                <li key={gif.id}>
+                  <figure>
+                    <img src={gif.images.fixed_width.url} alt={gif.title} />
+                    <figcaption>{gif.title}</figcaption>
+                  </figure>
+                </li>
+              ))
+            )}
+          </List>
         </Container>
         <Footer />
       </>

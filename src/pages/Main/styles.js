@@ -28,6 +28,13 @@ export const Form = styled.form`
   }
 `;
 
+export const List = styled.ul`
+  padding: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  list-style: none;
+`;
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
